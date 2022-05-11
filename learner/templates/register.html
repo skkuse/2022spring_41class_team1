@@ -1,0 +1,11 @@
+<html>
+<div>
+    <form method="POST" action=".">
+        {% csrf_token %}
+        id : <br> <input type="text" id="username" name="username" placeholder="username"> <br>
+        pass : <br> <input type="password" id="password" name="password" placeholder="password"> <br>
+        re-pass : <br> <input type="password" id="re-password" name="re-password" placeholder="re-password"> <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</html>
