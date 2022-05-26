@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>Understanding of Tensor</h2>
+        <h3>Concept of Tensor</h3>
+        <p>
+          <img src="{% static 'images/step1/image1.png' %}?{% now 'U' %}" style="display: block; margin: 0px auto;"/>
+          <br/>
+          딥 러닝을 하게 되면 다루게 되는 가장 기본적인 단위는 벡터, 행렬, 텐서입니다. 차원이 없는 값을 스칼라(위의 그림에는 없음),
+          1차원으로 구성된 값을 우리는 벡터라고 합니다.
+          <br/><br/>
+          2차원으로 구성된 값을 행렬(Matrix)라고 합니다. 그리고 3차원이 되면 우리는 텐서(Tensor)라고 부릅니다. 사실 우리는 3차원의 세상에 살고 있으므로, 
+          4차원 이상부터는 머리로 생각하기는 어렵습니다. 4차원은 3차원의 텐서를 위로 쌓아 올린 모습으로 상상해보겠습니다.
+          <br/><br/>
+          5차원은 그 4차원을 다시 옆으로 확장한 모습으로 생각해봅시다. 6차원은 5차원을 뒤로 확장한 모습으로 볼 수 있습니다.
+          <br/><br/>
+          옮긴이 주 : 데이터사이언스 분야 한정으로 3차원 이상의 텐서는 그냥 다차원 행렬 또는 배열로 간주할 수 있습니다. 
+          또한 주로 3차원 이상을 텐서라고 하긴 하지만, 1차원 벡터나 2차원인 행렬도 텐서라고 표현하기도 합니다. 같은 표현입니다. 
+          벡터 = 1차원 텐서, 2차원 행렬 = 2차원 텐서. 그리고 3차원 텐서, 4차원 텐서, 5차원 텐서 등...
+        </p>
+        <a href="../main/class_start" class="previous">&laquo; 전 수업</a>
+        <a href="./step1-1ex" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

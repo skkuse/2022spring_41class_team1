@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/practice.js' %}?{% now 'U' %}"></script>
+
+  </head>
+  <body>
+    <header>
+      <!--내비게이션 있음-->
+      {% include "../navigation.html" %}
+
+
+    <!--컨텐트-->
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+          <h2>Understanding of Tensor</h2>
+          <h3>Practice</h3>
+          <p>Question: 아래의 Source code를 이용하여 Size([100 ,100, 1])인 Tensor들로 Label을 포함한 Dataset을 만들고, answer를 출력하세요. (Hint : unsqueeze를 이용하세요).</p>
+          <h4>Answer</h4>
+          <img src="{% static 'images/step3/step3-2pr-answer.png' %}?{% now 'U' %}">
+          <p>print(“Answer”)을 입력하진 않았는지 확인</p>
+          <!--입력 코드-->
+          <h4>Input</h4>
+          <form id="send_editor" method="post" action="#">
+            {% csrf_token %}
+            <textarea id="inputeditor">
+import torch
+import os
+import os.path as p
+import cv2
+from torch.utils.data import TensorDataset
+
+root_dir='C:/cd_classifier/Practice/Step3'
+animal_data=[]
+data_labels=[]
+img_rows = 256
+img_cols = 256
+#주석처리부분이 사용자가 구현해야 할 부분
+# # Get animal data
+# print("Get data...")
+# for animal in ('cats/', 'dogs/'):
+#     animal_dir=p.join(root_dir,animal)
+#     os.chdir(animal_dir)
+#     files = os.listdir(animal_dir)
+
+#     for file in files:
+#         if '.jpg' in file: 
+#             f = cv2.imread(file, 0)
+#             f = torch.FloatTensor(cv2.resize(f, (img_rows, img_cols)))
+        
+#         animal_data.append(f)
+#         if animal == "cats/":
+#             data_labels.append(1)
+#         else:
+#             data_labels.append(0)
+# animal_data=torch.stack(animal_data)
+# animal_data=animal_data.unsqueeze(1)
+# data_labels=torch.LongTensor(data_labels)
+# dataset=TensorDataset(animal_data, data_labels)
+# print(dataset[0])
+# print(dataset[10])
+
+# for j in data_labels:
+#     print(j, end=' ')              
+            </textarea>
+            <input type="submit" id="submitBtn" value="출력">
+          </form>
+          <!--출력 코드-->
+          <h4>Output</h4>
+          <form id="receive_editor" method="get" action="#">
+          <textarea id="outputeditor"></textarea>
+          <h4>Log</h4>
+          <textarea id="erroreditor"></textarea>
+          </form>
+          <a href="./step3-2ex" class="previous">&laquo; 전 수업</a>
+          <a href="../step4/step4" class="next">다음 수업 &raquo;</a>
+          </div>
+        </div>
+    
+        <script>
+          //입력코드
+          var inputeditor = CodeMirror.fromTextArea(document.getElementById("inputeditor"),{
+            mode:"python", 
+            theme:"dracula", 
+            lineNumbers: true,
+          }).setSize("100%","100%");
+          //출력코드
+          var outputeditor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+            mode:"python", 
+            theme:"dracula", 
+            lineNumbers: true,
+            readOnly: true
+          }).setSize("100%","100%");
+        </script>
+      </div>
+      
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

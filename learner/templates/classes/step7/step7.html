@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+
+      <div class="class-content">
+        <h2>Test Process</h2>
+        <p>
+          이제 마지막으로 만든 model이 test data에 대해 얼마나 예측 성능을 보이는지 알아볼 차례입니다.
+          <br/>
+          <form id="receive_editor" method="get" action="#">
+            <textarea id="outputeditor">
+# Test
+print("Start Test...")
+
+test_correct = 0
+test_total = 0
+
+test_model = CNN()
+test_model, optimizer, ckpt_epoch, train_loss, best_loss = load_ckpt(
+        ckpt_path=p.join(ckpt_path, f"checkpoint_epoch_{best_epoch}.pt"), 
+        model=model,
+        optimizer=optimizer
+    )
+test_model = test_model.to(device)
+
+with torch.no_grad():
+    for inputs, labels in test_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        logits = test_model(inputs)
+        
+        loss = criterion(logits.squeeze(1), labels.float())
+        pred = torch.sigmoid(logits.squeeze(1))
+        pred = torch.round(pred)
+        test_total += labels.size(0)
+        test_correct += (pred == labels).sum().item()
+test_acc = test_correct / test_total
+
+test_acc = test_acc * 100
+print('TestAcc: %.2f' % (test_acc))              
+            </textarea>
+          </form>
+          <br/>
+          다른 부분들은 validation과 동일하지만 Test 과정에서는 sigmoid 함수를 통해 0~1 사이의 값으로 변환시켜 줍니다. <br/><br/>
+          그리고 이를 반올림하여 모델이 0 또는 1을 예측하게 하는 것이죠. <br/><br/>
+          예측한 결과와 실제 label을 비교하여 얼마나 일치했는지를 통해 모델의 성능을 평가합니다.
+        </p>
+        <a href="../step6/step6-quiz2" class="previous">&laquo; 전 수업</a>
+        <a href="./step7-quiz" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+    
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

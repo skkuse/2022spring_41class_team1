@@ -1,0 +1,63 @@
+/*배경 비디오*/
+#background_video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+/*로그인 폼*/
+.form-wrapper{
+  position: fixed;
+  margin-top: 16rem;
+  margin-left: 44rem;
+  padding: 1rem;
+  width: 25%;
+  background: white;
+  color: black;
+  border-radius: 20px;
+}
+.form{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+p{
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+input{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0.5rem;
+}
+#title{
+  font-size: 2rem;
+  text-align: center;
+}
+#Email{
+  font-size: 1.5rem;
+}
+.Password{
+  font-size: 1.5rem;
+}
+#errormsg{
+  font-size: 1.2rem;
+  text-align: center;
+}
+#SubmitBtn{
+  font-size: 1.2rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  color:black;
+  background-color: rgb(141,1981,63);
+  border-color: rgb(141,1981,63);
+}
+/*credits*/
+#authors{
+  font-size: 0.8rem;
+}

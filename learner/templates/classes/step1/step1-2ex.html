@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+    <!--컨텐트-->
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+
+      <div class="class-content">
+        <h2>Understanding of Tensor</h2>
+      <h3>Example</h3>
+      <p>torch.FloatTensor()에 대해 unsqueeze(), squeeze()를 사용해보세요!</p>
+      
+      <!--입력 코드-->
+      <h4>Input</h4>
+      <form id="send_editor" method="post" action="#">
+        <textarea id="inputeditor">
+import torch
+#주석처리부분이 사용자가 구현해야 할 부분
+def example1_2():
+    # t = torch.FloatTensor([[1., 2., 3.],
+    #                    [4., 5., 6.],
+    #                    [7., 8., 9.],
+    #                    [10., 11., 12.]]
+    #                   )
+    # t1 = t.unsqueeze(0)
+    # t2 = t.squeeze(0)
+    return t1,t2
+
+def judge_1_2ex(t1,t2):
+    t=torch.FloatTensor([[1., 2., 3.],
+                        [4., 5., 6.],
+                        [7., 8., 9.],
+                        [10., 11., 12.]]
+                      )
+    answer_t1 = t.unsqueeze(0)
+    answer_t2 = t.squeeze(0)
+    
+    if(type(t1)==type(answer_t1))&(type(t2)==type(answer_t2)):
+        pass
+    else:
+        return False
+    if(t1.shape==answer_t1.shape)&(t2.shape==answer_t2.shape):
+        return True
+    else:
+        return False
+
+if __name__=="__main__":
+    t1,t2=example1_2()
+    #사용자가 봐야할 t1,t2의 결과
+    print(t1)
+    print(t2)
+    print(t1.shape)
+    print(t2.shape)
+    print(judge_1_2ex(t1,t2))                   
+        </textarea>
+      </form>
+
+      <!--출력 코드-->
+      <h4>Output</h4>
+      <form id="receive_editor" method="get" action="#">
+        <textarea id="outputeditor">
+tensor([[[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.],
+         [ 7.,  8.,  9.],
+         [10., 11., 12.]]])
+torch.Size([1, 4, 3])
+torch.Size([4, 3])
+        </textarea>
+      </form>
+
+      <br/>
+      <a href="./step1-2" class="previous">&laquo; 전 수업</a>
+      <a href="./step1-2pr" class="next">다음 수업 &raquo;</a>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("inputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+      </div>
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

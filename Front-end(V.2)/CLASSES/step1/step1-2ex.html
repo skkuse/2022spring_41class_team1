@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="../../CSS/practice.css" />
+    <link rel="stylesheet" href="../../codemirror-5.65.3/lib/codemirror.css" />
+    <link rel="stylesheet" href="../../codemirror-5.65.3/theme/dracula.css" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="../../codemirror-5.65.3/mode/css/css.js"></script>
+    <script type="text/javascript" src="../../codemirror-5.65.3/lib/codemirror.js"></script>
+    <script type="text/javascript" src="../../codemirror-5.65.3/mode/python/python.js"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    <div class="header">
+      <div id="logo">
+        <a href="../../PAGES/homepage.html">
+          <img src="../../IMAGES/logo.png">
+        </a>
+      </div>
+      <div class="top_menu">
+        <a class="active" href="#">To Class</a> <!--진행상황에 따라 링크 봐뀜-->
+        <a class="active" href="../../PAGES/profile.html">To Profile</a>
+      </div>
+      <div id="userName">안녕하세요, 000님</div>
+      <input id="logoutSubmit" type="submit" value="로그아웃"/>
+    </div>
+
+    <!--컨텐트-->
+    <div class="container">
+      <div class="navigation-content">
+        <a href="../../PAGES/homepage.html">Home</a>
+        <a href="../class_start.html">Pytorch</a>
+        <button class="dropdown-btn" style="color:white; background:rgb(35, 37, 114);">Tensor<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container" style="display: block">
+          <a href="../../CLASSES/step1/step1-1.html">Concept of Tensor: Class</a>
+          <a href="../../CLASSES/step1/step1-1ex.html">Concept of Tensor: Example</a>
+          <a href="../../CLASSES/step1/step1-1pr.html">Concept of Tensor: Practice</a>
+          <a href="../../CLASSES/step1/step1-2.html">Tensor Manipulation: Class</a>
+          <a href="../../CLASSES/step1/step1-2ex.html" style="color:white; background:rgb(35, 37, 114);">Tensor Manipulation: Example</a>
+          <a href="../../CLASSES/step1/step1-2pr.html">Tensor Manipulation: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Gradient Descent Algorithm<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step2/step2-1.html">Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-1ex.html">Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2.html">GD in Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-2ex.html">GD in Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2pr.html">GD in Linear Regression: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Data Preprocessing<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step3/step3-1.html">Loading Data</a>
+          <a href="../../CLASSES/step3/step3-2.html">Cleaning Datasets: Class</a>
+          <a href="../../CLASSES/step3/step3-2ex.html">Cleaning Datasets: Example</a>
+          <a href="../../CLASSES/step3/step3-2pr.html">Cleaning Datasets: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Convolutional Neural Network<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step4/step4.html">CNN: Class</a>
+          <a href="../../CLASSES/step4/step4-quiz.html">CNN: Quiz</a>
+        </div>
+        <button class="dropdown-btn ">Training Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step5/step5.html">Training Process: Class</a>
+          <a href="../../CLASSES/step5/step5-quiz1.html">Training Process: Quiz 1</a>
+          <a href="../../CLASSES/step5/step5-quiz2.html">Training Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Validation Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step6/step6.html">Validation Process: Class</a>
+          <a href="../../CLASSES/step6/step6-quiz1.html">Validation Process: Quiz 1</a>
+          <a href="../../CLASSES/step6/step6-quiz2.html">Validation Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Test Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step7/step7.html">Test Process: Class</a>
+          <a href="../../CLASSES/step7/step7-quiz.html">Test Process: Quiz 1</a>
+        </div>
+      </div>
+
+      <div class="class-content">
+        <h2>Understanding of Tensor</h2>
+      <h3>Example</h3>
+      <p>torch.FloatTensor()에 대해 unsqueeze(), squeeze()를 사용해보세요!</p>
+      
+      <!--입력 코드-->
+      <h4>Input</h4>
+      <form id="send_editor" method="post" action="#">
+        <textarea id="inputeditor">
+import torch
+#주석처리부분이 사용자가 구현해야 할 부분
+def example1_2():
+    # t = torch.FloatTensor([[1., 2., 3.],
+    #                    [4., 5., 6.],
+    #                    [7., 8., 9.],
+    #                    [10., 11., 12.]]
+    #                   )
+    # t1 = t.unsqueeze(0)
+    # t2 = t.squeeze(0)
+    return t1,t2
+
+def judge_1_2ex(t1,t2):
+    t=torch.FloatTensor([[1., 2., 3.],
+                        [4., 5., 6.],
+                        [7., 8., 9.],
+                        [10., 11., 12.]]
+                      )
+    answer_t1 = t.unsqueeze(0)
+    answer_t2 = t.squeeze(0)
+    
+    if(type(t1)==type(answer_t1))&(type(t2)==type(answer_t2)):
+        pass
+    else:
+        return False
+    if(t1.shape==answer_t1.shape)&(t2.shape==answer_t2.shape):
+        return True
+    else:
+        return False
+
+if __name__=="__main__":
+    t1,t2=example1_2()
+    #사용자가 봐야할 t1,t2의 결과
+    print(t1)
+    print(t2)
+    print(t1.shape)
+    print(t2.shape)
+    print(judge_1_2ex(t1,t2))                   
+        </textarea>
+      </form>
+
+      <!--출력 코드-->
+      <h4>Output</h4>
+      <form id="receive_editor" method="get" action="#">
+        <textarea id="outputeditor">
+tensor([[[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.],
+         [ 7.,  8.,  9.],
+         [10., 11., 12.]]])
+torch.Size([1, 4, 3])
+torch.Size([4, 3])
+        </textarea>
+      </form>
+
+      <br/>
+      <a href="./step1-2.html" class="previous">&laquo; 전 수업</a>
+      <a href="./step1-2pr.html" class="next">다음 수업 &raquo;</a>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("inputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+      </div>
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

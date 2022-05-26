@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}"/>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../classes/navigation.html" %}
+    <div class="container">
+      {% include "classes/sidebar.html" %}
+      <div class="class-content">
+        <h2>온라인 머신러닝 수업</h2>
+        <p>
+          온라인 머신러닝 수업에 오신것을 환영합니다.
+          <br/><br/>
+          Dogs vs. Cats 분류는 문제가 간단해 보이지만 지난 몇 년 동안 딥 러닝 합성곱 신경망을 사용하여 효과적으로 해결되었습니다. 
+          데이터 세트가 효과적으로 해결되는 동안 이미지 분류를 위해 컨볼루션 딥 러닝 신경망을 처음부터 개발, 평가 및 사용하는 방법을 학습하고 연습하기 위한 기초로 사용할 수 있습니다.
+          <br/><br/>
+          이 튜토리얼에서는 개와 고양이의 사진을 분류하기 위해 컨볼루션 신경망을 개발하는 방법을 발견할 것입니다.
+          <br/><br/>
+          이 수업에서는 다음을 공부하게 됩니다.
+          <br/>
+          <ol type="1">
+            <li>Pytorch 소개 및 활용법</li>
+            <li>Tensor Concept과 Manipulation의 소개, 예시, 연습</li>
+            <li>Gradient Descent Algorithm 소개, 예시, 연습</li>
+            <li>Data Preprocessing 소개, 예시, 연습</li>
+            <li>Convolutional Neural Network 소개, 퀴즈</li>
+            <li>Training Process 소개, 퀴즈</li>
+            <li>Validation Process 소개, 퀴즈</li>
+            <li>Test Process 소개, 퀴즈</li>
+          </ol>
+          <br/><br/>
+
+        </p>
+        <a href="./class_start" class="next">수업 시작 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

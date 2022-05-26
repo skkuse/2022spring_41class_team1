@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>Validation Process</h2>
+        <p>
+          이젠 학습 시 over-fitting을 방지하기 위한 validation 과정을 작성할 차례입니다.
+          Validation 과정은 train과 같이 진행됩니다.
+          <br/><br/>
+          <textarea id="code1">
+# Train
+print("Start Training...")
+os.makedirs(ckpt_path, exist_ok=True)
+best_epoch = 0
+for epoch in range(epochs):
+    model.train()
+    epoch_loss = 0.0
+
+    for step, (inputs, labels) in enumerate(tqdm(train_loader)):
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        logits = model(inputs)
+        
+        loss = criterion(logits.squeeze(1), labels.float())
+        loss.backward()
+
+        optimizer.step()
+
+        epoch_loss += loss.item()
+
+    print(f"[Epoch {epoch + 1}],  loss: {epoch_loss/(step + 1): .3f}")
+
+    train_loss.append(epoch_loss / len(train_loader))
+
+    with torch.no_grad():
+        current_loss = 0.0
+        for step, (inputs, labels) in enumerate(valid_loader):
+            inputs, labels = inputs.to(device), labels.to(device)
+            logits = model(inputs)
+        
+            loss = criterion(logits.squeeze(1), labels.float())
+            current_loss += loss.item()
+        valid_loss = current_loss / len(valid_loader)
+
+    if valid_loss < best_loss:
+            best_loss = valid_loss
+            save_ckpt(
+                ckpt_path=p.join(ckpt_path, f"checkpoint_epoch_{epoch + 1}.pt"), 
+                model=model, optimizer=optimizer,
+                epoch=epoch+1,
+                train_loss=train_loss, best_loss=valid_loss
+            )
+            best_epoch = epoch + 1
+            print(f"Success to save checkpoint. Best loss so far: {best_loss: .3f}")
+    else:
+        print("No improvement detected. Skipping save")
+          </textarea>
+          <br/>
+          with torch.no_grad()를 통해 validation 과정의 모든 연산들이 gradient를 계산하지 않도록 합니다.
+          <br/><br/>
+          나머지 부분은 train과 동일하게 진행됩니다.
+          <br/><br/>
+          그 중 validation loss가 가장 낮은 상태를 저장하여 사용합니다
+        </p>
+        <a href="../step5/step5-quiz2" class="previous">&laquo; 전 수업</a>
+        <a href="./step6-quiz1" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code1"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;    
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

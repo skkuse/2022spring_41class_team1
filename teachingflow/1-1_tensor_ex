@@ -1,0 +1,10 @@
+import torch
+t = torch.FloatTensor([[1., 2., 3.],
+                       [4., 5., 6.],
+                       [7., 8., 9.],
+                       [10., 11., 12.]
+                      ])
+print(t)
+print(t.dim()) # rank (차원)
+print(t.size()) # shape
+print(t.shape)

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>회원가입|Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?{% now 'U' %}"/>
+    <!--js tags-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/signUp.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--비디오 배경화면-->
+    <video autoplay muted loop id="background_video">
+      <source src="{% static 'images/background2.mp4' %}?{% now 'U' %}" type="video/mp4">
+    </video>
+    <!--로그인 폼-->
+    <div class="form-wrapper">
+      <div id="title">Online Machine Learning<br/> Coding Class</div>
+      <p>회원인가요? <a href="/">로그인</a> </p>
+      <form id="form" name="registerForm" method="post" action="signUp" onsubmit="return validate()"> <!--action page는 backend page link로 기입-->
+        {% csrf_token %}
+        <div id="EmailArea">
+          <div class="loginInputBox">
+            <input type="email" id="Email" name="email" size="30" placeholder="이메일"/>
+            <div id="dup_msg" style=" display:none;padding-left:2.5rem; margin-bottom: 0.5rem;">이미 존재하는 이메일입니다</div>
+            <input type="text" id="Text" name="name" size="30" placeholder="이름"/>
+          </div>
+        </div>
+        <div id="PwArea">
+          <div class="loginInputBox">
+            <input id="loginPw" type="password" class="Password" name="loginPw" size="30" placeholder="비밀번호"/>
+            <input id="loginPwChk" type="password" class="Password" name="loginPwChk" size="30" placeholder="비밀번호 확인"/>
+          </div>
+        </div>
+        <!--에러 메세지-->
+        <br/>
+        <div id="errormsg"></div>
+        <br/>
+        <input type="submit" id="SubmitBtn" value="회원가입"/>
+        <p id="authors">@Team 1</p>
+      </form>
+    </div>
+  </body>
+</html>

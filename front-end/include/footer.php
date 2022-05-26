@@ -1,0 +1,3 @@
+<footer>
+    <p>Online DOG/CAT Machine Learning Class by Team 1</p>
+</footer>

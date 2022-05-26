@@ -1,0 +1,256 @@
+@media screen and (min-device-width: 1600px) {
+  #logo img{
+    width: 350px;
+  }
+  body{
+    margin-left: 20rem;
+    margin-right: 20rem;
+    background-image: url('../IMAGES/background.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+@media screen and (max-device-width: 1650px) {
+  #logo img{
+    width: 350px;
+  }
+  body{
+    margin-left: 10rem;
+    margin-right: 10rem;
+    background-image: url('../IMAGES/background.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+/*header css*/
+.header{
+  display: flex;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+#logo{
+  flex: 1;
+  color: white;
+}
+.top_menu{
+  width: 400px;
+  font-size: 1.5rem;
+  padding-top: 0.8rem;
+  padding-right: 1rem;
+}
+.top_menu a{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 2.5rem;
+  margin-right: 1rem;
+  padding: 0.2rem;
+  color:rgb(18, 17, 54);
+}
+#userName{
+  width: 210px;
+  font-size: 1.5rem;
+  padding-top: 0.8rem;
+  padding-right: 0.5rem;
+}
+#logoutSubmit{
+  width: 85px;
+  height: 30px;
+  margin-top: 0.8rem;
+  padding: 0.1rem;
+  font-size: 1.2rem;
+  color: white;
+  background: rgb(35, 37, 114);
+  border-color: white;
+}
+.top_menu a:hover{
+  color: white;
+  background: rgb(35, 37, 114);
+}
+#logoutSubmit:hover{
+  color:rgb(35, 37, 114);
+  background: white;
+  border-color:rgb(35, 37, 114)
+}
+
+/*container css*/
+.container{
+  display:flex; 
+}
+
+/*side nav*/
+.navigation-content{
+  flex: 0.25;
+  margin-top: 6rem;
+  padding-right: 1rem;
+}
+.navigation-content a{
+  border-radius: 2rem;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.2rem;
+  background: rgb(18, 17, 54);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.3rem;
+}
+.dropdown-btn{
+  border-radius: 2em;
+  text-decoration: none;
+  width: 20rem;
+  margin-bottom: 0.2rem;
+  background: rgb(18, 17, 54);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.3rem;
+}
+.dropdown-container{
+  text-decoration: none;
+  width: 17rem;
+  margin-left: 3rem;
+  display: none;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/*class css*/
+.class-content{
+  flex: 0.75;
+  padding: 1 rem;
+}
+.class-content h2{
+  font-size: 2rem;
+  text-align: center;
+  margin: 1.5rem;
+  color:rgb(18, 17, 54);
+}
+.class-content p{
+  font-size: 1rem;
+}
+.class-content li{
+  font-size: 1rem;
+  list-style: circle;
+}
+.class-content a{
+  color: white;
+  background-color: rgb(18, 17, 54);
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+.previous{
+  float: left;
+  margin-top: 0.5rem;
+}
+.next{
+  float: right;
+  margin-top: 0.5rem;
+}
+.reded{
+  color: red;
+}
+.oranged{
+  color: rgb(226, 147, 1);
+}
+.bolded{
+  font-weight: bold;
+}
+
+/*change password css*/
+.mainDiv {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.cardStyle {
+  width: 500px;
+  border-color: white;
+  background: #fff;
+  padding: 36px 0;
+  border-radius: 4px;
+  margin: 30px 0;
+}
+#signupLogo {
+max-height: 100px;
+margin: auto;
+display: flex;
+flex-direction: column;
+}
+.formTitle{
+font-weight: 600;
+margin-top: 20px;
+color: #2F2D3B;
+text-align: center;
+}
+.inputLabel {
+font-size: 12px;
+color: #555;
+margin-bottom: 6px;
+margin-top: 24px;
+}
+.inputDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+input {
+height: 40px;
+font-size: 16px;
+border-radius: 4px;
+border: none;
+border: solid 1px #ccc;
+padding: 0 11px;
+}
+input:disabled {
+cursor: not-allowed;
+border: solid 1px #eee;
+}
+.buttonWrapper {
+margin-top: 40px;
+}
+.submitButton {
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  display: block;
+  color: #fff;
+  background-color: #065492;
+  border-color: #065492;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.submitButton:disabled,
+button[disabled] {
+border: 1px solid #cccccc;
+background-color: #cccccc;
+color: #666666;
+}
+#loader {
+position: absolute;
+z-index: 1;
+margin: -2px 0 0 10px;
+border: 4px solid #f3f3f3;
+border-radius: 50%;
+border-top: 4px solid #666666;
+width: 14px;
+height: 14px;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

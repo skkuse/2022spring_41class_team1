@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "./navigation.html" %}
+
+    <div class="container">
+      {% include "./sidebar.html" %}
+      <div class="class-content">
+        <h2>Basic Configuration of Pytorch Package</h2>
+        <p>
+          Pytorch는 딥러닝을 통해 Classification을 만들어 보기 좋은 python library 입니다. Pytorch를이용해 다양한 기계학습 방법론을 Data에 적용시켜 볼 수 있습니다. 
+          이 사이트는 Python으로 기계학습의 여러 방법론 중 Deep Learning을 실습하기 위해 만들어졌습니다. 
+          <br/><br/>
+          이 교육과정은 Python 환경에서 pytorch를 이용해 CNN 모델을 만들고 Gradient Descent Algorithm을 적용시켜 모델에 Data(Cat and Dog)를 학습시키고, 
+          이를 통해 새로운 Data가 들어왔을 때 Cat 인지 Dog인지 구분할 수 있게 하는 Cat and Dog Classification Model을 만드는 것을 최종 목표로 합니다.
+          <br/><br/>
+          <ul type="square">
+            <li>torch 메인 네임스페이스입니다. 텐서 등의 다양한 수학 함수가 포함되어져 있으며 Numpy와 유사한 구조를 가집니다.</li>
+            <li>torch.autograd 자동 미분을 위한 함수들이 포함되어져 있습니다. 자체 미분 가능 함수를 정의할 때 사용하는 기반 클래스인 'Function' 등이 포함되어져 있습니다.</li>
+            <li>torch.nn 신경망을 구축하기 위한 다양한 데이터 구조나 레이어 등이 정의되어 있습니다. 예로는 ReLU와 같은 활성화 함수, MSELoss와 같은 손실 함수들이 있습니다.</li>
+            <li>torch.optim 확률적 경사 하강법(Stochastic Gradient Descent, SGD)를 중심으로 한 파라미터 최적화 알고리즘이 구현되어져 있습니다.</li>
+            <li>torch.utils.data SGD의 반복 연산을 실행할 때 사용하는 미니 배치용 유틸리티 함수가 포함되어져 있습니다.</li>
+            <li>torch.onnx ONNX(Open Neural Network Exchange)의 포맷으로 모델을 익스포트(export)할 때 사용합니다. ONNX는 서로 다른 딥 러닝 프레임워크 간에 모델을 공유할 때 사용하는 포맷입니다.</li>
+          </ul>
+          <br/><br/>
+        </p>
+        <a href="homepage" class="previous">&laquo; 홈으로</a>
+        <a href="../step1/step1-1" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

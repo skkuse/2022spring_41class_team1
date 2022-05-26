@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="./CSS/cssReset.css" />
+    <link rel="stylesheet" href="../../CSS/pages.css" />
+    <link rel="stylesheet" href="../../codemirror-5.65.3/lib/codemirror.css" />
+    <link rel="stylesheet" href="../../codemirror-5.65.3/theme/dracula.css" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="../../codemirror-5.65.3/mode/css/css.js"></script>
+    <script type="text/javascript" src="../../codemirror-5.65.3/lib/codemirror.js"></script>
+    <script type="text/javascript" src="../../codemirror-5.65.3/mode/python/python.js"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    <div class="header">
+      <div id="logo">
+        <a href="../../PAGES/homepage.html">
+          <img src="../../IMAGES/logo.png">
+        </a>
+      </div>
+      <div class="top_menu">
+        <a class="active" href="#">To Class</a> <!--진행상황에 따라 링크 봐뀜-->
+        <a class="active" href="../../PAGES/profile.html">To Profile</a>
+      </div>
+      <div id="userName">안녕하세요, 000님</div>
+      <input id="logoutSubmit" type="submit" value="로그아웃"/>
+    </div>
+
+    <div class="container">
+      <div class="navigation-content">
+        <a href="../../PAGES/homepage.html">Home</a>
+        <a href="../class_start.html">Pytorch</a>
+        <button class="dropdown-btn">Tensor<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step1/step1-1.html">Concept of Tensor: Class</a>
+          <a href="../../CLASSES/step1/step1-1ex.html">Concept of Tensor: Example</a>
+          <a href="../../CLASSES/step1/step1-1pr.html">Concept of Tensor: Practice</a>
+          <a href="../../CLASSES/step1/step1-2.html">Tensor Manipulation: Class</a>
+          <a href="../../CLASSES/step1/step1-2ex.html">Tensor Manipulation: Example</a>
+          <a href="../../CLASSES/step1/step1-2pr.html">Tensor Manipulation: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Gradient Descent Algorithm<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step2/step2-1.html">Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-1ex.html">Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2.html">GD in Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-2ex.html">GD in Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2pr.html">GD in Linear Regression: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Data Preprocessing<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step3/step3-1.html">Loading Data</a>
+          <a href="../../CLASSES/step3/step3-2.html">Cleaning Datasets: Class</a>
+          <a href="../../CLASSES/step3/step3-2ex.html">Cleaning Datasets: Example</a>
+          <a href="../../CLASSES/step3/step3-2pr.html">Cleaning Datasets: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Convolutional Neural Network<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step4/step4.html">CNN: Class</a>
+          <a href="../../CLASSES/step4/step4-quiz.html">CNN: Quiz</a>
+        </div>
+        <button class="dropdown-btn " style="color:white; background:rgb(35, 37, 114);">Training Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container" style="display: block">
+          <a href="../../CLASSES/step5/step5.html" style="color:white; background:rgb(35, 37, 114);">Training Process: Class</a>
+          <a href="../../CLASSES/step5/step5-quiz1.html">Training Process: Quiz 1</a>
+          <a href="../../CLASSES/step5/step5-quiz2.html">Training Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Validation Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step6/step6.html">Validation Process: Class</a>
+          <a href="../../CLASSES/step6/step6-quiz1.html">Validation Process: Quiz 1</a>
+          <a href="../../CLASSES/step6/step6-quiz2.html">Validation Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Test Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step7/step7.html">Test Process: Class</a>
+          <a href="../../CLASSES/step7/step7-quiz.html">Test Process: Quiz 1</a>
+        </div>
+      </div>
+
+      <div class="class-content">
+        <h2>Training Process</h2>
+        <p>
+          이제 모델을 정말로 학습시킬 차례입니다. <br/><br/>
+          먼저 앞서 설계한 모델을 정의합니다. <br/><br/>
+          <textarea id="code1">
+model = CNN().to(device)       
+          </textarea>
+          <br/>
+          이어서 learning rate와 몇 번을 학습할지를 나타내는 epoch, Loss function, optimizer와 같은 학습에 사용되는 hyperparameter를 정의해 줍니다.
+          <br/><br/>
+          <textarea id="code2">
+import torch
+import torch.nn as nn
+
+# Hyperparameter
+BATCH_SIZE = 32
+learning_rate = 0.00005
+epochs = 10
+
+criterion = nn.BCEWithLogitsLoss()
+optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)                  
+          </textarea>
+          <br/>
+          손실 함수(loss function)
+          <br/><br/>
+          학습용 데이터를 제공하면, 학습되지 않은 신경망은 정답을 제공하지 않을 확률이 높습니다. 
+          손실 함수(loss function)는 획득한 결과와 실제 값 사이의 틀린 정도(degree of dissimilarity)를 측정하며, 
+          학습 중에 이 값을 최소화하려고 합니다. 주어진 데이터 샘플을 입력으로 계산한 예측과 정답(label)을 비교하여 손실(loss)을 계산합니다.
+          <br/><br/>
+          일반적인 손실함수에는 회귀 문제(regression task)에 사용하는 nn.MSELoss(평균 제곱 오차(MSE; Mean Square Error))나 분류(classification)에 
+          사용하는 nn.NLLLoss (음의 로그 우도(Negative Log Likelihood)), 그리고 nn.LogSoftmax와 nn.NLLLoss를 합친 nn.CrossEntropyLoss 등이 있습니다.
+          <br/><br/>
+          Dataloader를 통해 dataset으로부터 모델에 들어갈 형태로 loader를 설정해주면 학습에 필요한 준비는 끝났습니다.
+          <br/><br/>
+          <textarea id="code3">
+from torch.utils.data import TensorDataset, DataLoader
+
+# Make Dataloader
+print("Get Dataloader")
+train_loader = DataLoader(
+    dataset=train_ds,
+    batch_size=BATCH_SIZE,
+    shuffle=True
+
+)
+valid_loader = DataLoader(
+    dataset=valid_ds,
+    batch_size=BATCH_SIZE,
+    shuffle=False
+)
+
+test_loader = DataLoader(
+    dataset=test_ds,
+    batch_size=BATCH_SIZE,
+    shuffle=True
+)                               
+          </textarea>
+          <br/>
+          다음은 학습이 실제로 진행되는 코드입니다.
+          <br/><br/>
+          <textarea id="code4">
+# Train
+print("Start Training...")
+os.makedirs(ckpt_path, exist_ok=True)
+best_epoch = 0
+for epoch in range(epochs):
+    model.train()
+    epoch_loss = 0.0
+
+    for step, (inputs, labels) in enumerate(tqdm(train_loader)):
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        logits = model(inputs)
+        
+        loss = criterion(logits.squeeze(1), labels.float())
+        loss.backward()
+
+        optimizer.step()
+
+        epoch_loss += loss.item()
+
+    print(f"[Epoch {epoch + 1}],  loss: {epoch_loss/(step + 1): .3f}")
+
+    train_loss.append(epoch_loss / len(train_loader))              
+          </textarea>
+          <br/>
+          model.train()을 통해 모델이 loss를 학습할 수 있는 상태임을 지정하고 Dataloader에서 하나씩 mini-batch를 꺼내어 학습을 진행합니다.
+          Logits가 모델이 내놓는 output이라고 생각을 하시면 됩니다.
+          <br/><br/>
+          미리 정의해둔 criterion (=loss function)을 통해 모델이 내놓는 logits와 실제 정답인 label의 차이를 통해 loss를 계산합니다.
+          <br/><br/>
+          loss.backward()를 통해 모델이 학습을 할 수 있도록 하고 optimizer.step()을 호출하여 역전파 단계에서 수집된 변화도(loss)로 매개변수를 조정합니다.
+        </p>
+        <a href="../step4/step4.html" class="previous">&laquo; 전 수업</a>
+        <a href="./step5-quiz1.html" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor3 = CodeMirror.fromTextArea(document.getElementById("code3"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor4 = CodeMirror.fromTextArea(document.getElementById("code4"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+    
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

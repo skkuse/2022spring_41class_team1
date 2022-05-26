@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/quiz.js' %}?{% now 'U' %}"></script>
+    </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+
+      <div class="class-content">
+        <h2>Training Process</h2>
+        <h3>Quiz 1</h3>
+        <p>
+          Classification 과정에서 다음 중 아래와 같은 텐서값을 만드는 함수로 올바른 것은?
+          (label의 개수 = 3)
+          tensor[0.2, 0.1, 0.7]
+          <form id="send_editor" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="qno" value="5-1"/>
+            <br>
+            <input name="q1" id="q1" type="text" />
+            <br>
+            <input type="submit" id="submit" value="정답 확인" />
+          </form>
+          <br/>
+          
+          <div id="answer"></div>
+        </p>
+        <a href="./step5" class="previous">&laquo; 전 수업</a>
+        <a href="./step5-quiz2" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+    </body>
+  </html>

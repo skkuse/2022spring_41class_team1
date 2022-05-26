@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>로그인|Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?{% now 'U' %}" />
+  </head>
+  <body>
+    <!--비디오 배경화면-->
+    <video autoplay muted loop id="background_video">
+      <source src="{% static 'images/background2.mp4' %}?{% now 'U' %}" type="video/mp4">
+    </video>
+    <!--로그인 폼-->
+    <div class="form-wrapper">
+      <div id="title">Online Machine Learning<br/> Coding Class</div>
+      <p>회원이 아니신가요? <a href="/pages/signUp">회원가입</a> </p>
+      <form id="form" name="loginForm" method="post" action="login"> <!--action page는 backend page link로 기입-->
+        {% csrf_token %}
+        <div id="EmailArea">
+          <div class="InputBox">
+            <input type="email" id="Email" name="email" size="30" placeholder="이메일"/>
+          </div>
+        </div>
+        <div id="PwArea">
+          <div class="InputBox">
+            <input type="password" class="Password" name="loginPw" size="30" placeholder="비밀번호"/>
+          </div>
+        </div>
+        <!--로그인 에러 메세지-->
+        <br/>
+        <div id="errormsg" style="color:red;">
+          {{ error }}
+        </div>
+        <br/>
+        <input type="submit" id="SubmitBtn" value="로그인"/>
+        <p id="authors">@Team 1</p>
+      </form>
+    </div>
+  </body>
+</html>
+
+

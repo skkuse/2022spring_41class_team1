@@ -1,0 +1,49 @@
+#signup{display:none}
+#introSite{_display: none;}
+
+/*common*/
+#siteComment{border:3px solid #0d1d2f; padding:1rem; font-size:2rem;color:#0d1d2f}
+/*signup*/
+#signupCenter{margin:0 auto}
+#signUpForm{float:left;width:98%;margin:40px 0 40px 0;padding-top:1rem;border:1px solid #ccc;border-radius:10px}
+
+.row{clear:both;float:left;width:100%;margin-bottom:1.5em}
+.row label{float:left;width:20%;padding-left:5%;font-size:1.3rem}
+.inputBox{float:left;width:90%;background:#fff;margin-left:1rem;border:1px solid #ccc}
+.row input{float:left;width:98%;font-size:1.5rem;margin-left:2%;background:#fff;border:none}
+
+#valueError{float:left;width:100%;text-align:center;color:red;font-size:2em}
+#siteComment{border:3px solid #0d1d2f;padding:1rem;font-size:2rem;color:#0d1d2f;}
+
+.submitBox{clear:both;float:left;width:25%;padding:0.4rem;background:#0d1d2f;margin-left:5%;border-radius:10px}
+#signUpSubmit{float:left;width:100%;background:none;color:#fff;text-align:center;font-size:1rem}
+
+
+/*mobile*/
+@media screen and (min-width:0px) and (max-width:1199px)
+{
+    body{background:#fff}
+    #signupCenter{width:80%}
+    #introSite{clear:both; float:left; width:100%}
+    #siteComment{margin:10% auto; width:65%; color:#0d1d2f}
+    #signUpBtn{margin:10% auto 15%; width:100px; height:30px; background:#0d1d2f; text-align:center; padding-top:1em; border-radius:1rem}
+    #signUpBtn p {font-size:1rem; color:#fff}
+    #goToLoginBtn{clear:both;width:30%;height:30px;padding:0.4rem;margin:0 auto 20px;background:#64cbf9;cursor:pointer;text-align:center;border-radius:10px}
+    #goToLoginBtn p{font-size:1rem;color:#fff;position:relative;top:5px}
+}
+
+/* desktop css source */
+@media screen and (min-width:1200px) 
+{
+    #loginForm{display:block}
+    #pre-container{float:left;width:100%;min-height:100%;background:url('/images/index/bgImage.jpg');background-size:cover}
+    #siteComment{margin:2% auto 0;width:300px;background:rgba(255,255,255,0.4); text-align: center;}
+    #introSite{display:block}
+    #signUpBtn, #goToLoginBtn{display:none}
+    #signup{display:block;margin-top:1%;margin-bottom:5%}
+    #signupCenter{width:50%}
+    #signUpForm{background:rgba(255,255,255,0.8)}
+    .inputBox{height:40px}
+    .row input{height:40px}
+    .submitBox{width:10%;padding:0.2rem}
+}

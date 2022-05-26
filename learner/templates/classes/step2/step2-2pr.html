@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/practice.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <header>
+      <!--내비게이션 있음-->
+      {% include "../navigation.html" %}
+
+
+    <!--컨텐트-->
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+          <h2>Understanding of Tensor</h2>
+          <h3>Practice</h3>
+          <table border="3px solid">
+            <tr>
+              <td>x</td>
+              <td>25</td>
+              <td>50</td>
+              <td>42</td>
+              <td>61</td>
+              <td>81</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>81</td>
+              <td>159</td>
+              <td>130</td>
+              <td>180</td>
+              <td>244</td>
+            </tr>
+          </table>
+          <p>Question: 위 Data에 대해 Linear Regression방식으로 Hypothesis와 Cost 식을 만들고 Gradient Descent을 적용하여 적절한 Learning Rate를 설정해보고, Cost<30를 만족하게 하는 W와 b를 찾아보세요.</p>
+          <h4>Answer</h4>
+          <!--입력 코드-->
+          <h4>Input</h4>
+          <form id="send_editor" method="post" action="#">
+            {% csrf_token %}
+            <input type="hidden" name="pno" value="2-2">
+            <textarea id="inputeditor" name="code">
+def practice_2_2(x_train,y_train):
+
+  # 모델 초기화
+  W = torch.zeros(1, requires_grad=True)
+  b = torch.zeros(1, requires_grad=True)
+  # optimizer 설정
+  optimizer = torch.optim.SGD([W, b], lr=0.0001)
+
+  nb_epochs = 100 # 원하는만큼 경사 하강법을 반복
+  for epoch in range(nb_epochs + 1):
+      # H(x) 계산
+      hypothesis = x_train * W + b
+      # cost 계산
+      cost = torch.mean((hypothesis - y_train) ** 2)
+      # cost로 H(x) 개선
+      optimizer.zero_grad()
+      cost.backward()
+      optimizer.step()
+      # 100번마다 로그 출력
+      if epoch % 10 == 0:
+          print('Epoch {:4d}/{} W: {:.3f}, b: {:.3f} Cost: {:.6f}'.format(
+              epoch, nb_epochs, W.item(), b.item(), cost.item()))
+
+  return hypothesis, cost, W, b
+            </textarea>
+            <input type="submit" id="submitBtn" value="출력">
+          </form>
+          <!--출력 코드-->
+          <h4>Output</h4>
+          <form id="receive_editor" method="get" action="#">
+          <textarea id="outputeditor"></textarea>
+          <h4>Log</h4>
+          <textarea id="erroreditor"></textarea>
+          </form>
+          <a href="./step2-2ex" class="previous">&laquo; 전 수업</a>
+          <a href="../step3/step3-1" class="next">다음 수업 &raquo;</a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

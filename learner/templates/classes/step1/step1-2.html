@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>Understanding of Tensor</h2>
+        <h3>Tensor Manipulation</h3>
+        <p>
+          Squeeze, Unsqueeze
+          <br/><br/>
+          스퀴즈(Squeeze)는 차원이 1인 경우에는 해당 차원을 제거합니다.
+          <br/><br/>
+          언스퀴즈(Unsqueeze)는 특정 위치에 1인 차원을 추가할 수 있습니다.
+        </p>
+        <a href="./step1-1pr" class="previous">&laquo; 전 수업</a>
+        <a href="./step1-2ex" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

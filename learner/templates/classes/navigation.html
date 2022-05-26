@@ -1,0 +1,17 @@
+{% load static %}
+<div class="header">
+    <div id="logo">
+      <a href="../main/homepage">
+        <img src="{% static 'images/logo.png' %}?{% now 'U' %}">
+      </a>
+    </div>
+    <div class="top_menu">
+      <a class="active" href="#">To Class</a> <!--진행상황에 따라 링크 봐뀜-->
+      <a class="active" href="../../../pages/profile">To Profile</a>
+    </div>
+    <div id="userName">안녕하세요, {{ request.session.name }}님</div>
+    <form id="form" name="logout_form" method="post" action="/logout">
+        {% csrf_token %}
+        <input id="logoutSubmit" type="submit" value="로그아웃"/>
+    </form>
+  </div>

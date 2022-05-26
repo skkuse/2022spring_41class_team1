@@ -1,0 +1,61 @@
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    path = window.location.pathname.split("/");
+    page_now = path[path.length-1];
+    $("#"+page_now).css("background","rgb(35, 37, 114)");
+    $("#s"+page_now.slice(4,5)).css("display","block");
+  })
+</script>
+
+<div class="navigation-content">
+      <button id="homepage" class="dropdown-btn "  onclick="location.href='../main/homepage'">Home</button><span></span>
+      <button id="class_start" class="dropdown-btn "  onclick="location.href='../main/class_start'">Pytorch</button><span></span>
+      <button class="dropdown-btn ">Tensor<i class="fa-caret-down"></i></button>
+      <div id="s1" class="dropdown-container">
+        <a id="step1-1" href="../step1/step1-1">Concept of Tensor: Class</a>
+        <a id="step1-1ex" href="../step1/step1-1ex">Concept of Tensor: Example</a>
+        <a id="step1-1pr" href="../step1/step1-1pr">Concept of Tensor: Practice</a>
+        <a id="step1-2" href="../step1/step1-2">Tensor Manipulation: Class</a>
+        <a id="step1-2ex" href="../step1/step1-2ex">Tensor Manipulation: Example</a>
+        <a id="step1-2pr" href="../step1/step1-2pr">Tensor Manipulation: Practice</a>
+      </div>
+      <button class="dropdown-btn ">Gradient Descent Algorithm<i class="fa-caret-down"></i></button>
+      <div id="s2" class="dropdown-container">
+        <a id="step2-1" href="../step2/step2-1">Linear Regression: Class</a>
+        <a id="step2-1ex" href="../step2/step2-1ex">Linear Regression: Example</a>
+        <a id="step2-2" href="../step2/step2-2">GD in Linear Regression: Class</a>
+        <a id="step2-2ex" href="../step2/step2-2ex">GD in Linear Regression: Example</a>
+        <a id="step2-2pr" href="../step2/step2-2pr">GD in Linear Regression: Practice</a>
+      </div>
+      <button class="dropdown-btn ">Data Preprocessing<i class="fa-caret-down"></i></button>
+      <div id="s3" class="dropdown-container">
+        <a id="step3-1" href="../step3/step3-1">Loading Data</a>
+        <a id="step3-2" href="../step3/step3-2">Cleaning Datasets: Class</a>
+        <a id="step3-2ex" href="../step3/step3-2ex">Cleaning Datasets: Example</a>
+        <a id="step3-2pr" href="../step3/step3-2pr">Cleaning Datasets: Practice</a>
+      </div>
+      <button class="dropdown-btn ">Convolutional Neural Network<i class="fa-caret-down"></i></button>
+      <div id="s4" class="dropdown-container">
+        <a id="step4" href="../step4/step4">CNN: Class</a>
+        <a id="step4-quiz" href="../step4/step4-quiz">CNN: Quiz</a>
+      </div>
+      <button class="dropdown-btn ">Training Process<i class="fa-caret-down"></i></button>
+      <div id="s5" class="dropdown-container">
+        <a id="step5" href="../step5/step5">Training Process: Class</a>
+        <a id="step5-quiz1" href="../step5/step5-quiz1">Training Process: Quiz 1</a>
+        <a id="step5-quiz2" href="../step5/step5-quiz2">Training Process: Quiz 2</a>
+      </div>
+      <button class="dropdown-btn ">Validation Process<i class="fa-caret-down"></i></button>
+      <div id="s6" class="dropdown-container">
+        <a id="step6" href="../step6/step6">Validation Process: Class</a>
+        <a id="step6-quiz1" href="../step6/step6-quiz1">Validation Process: Quiz 1</a>
+        <a id="step6-quiz2" href="../step6/step6-quiz2">Validation Process: Quiz 2</a>
+      </div>
+      <button class="dropdown-btn ">Test Process<i class="fa-caret-down"></i></button>
+      <div id="s7" class="dropdown-container">
+        <a id="step7" href="../step7/step7">Test Process: Class</a>
+        <a id="step7-quiz" href="../step7/step7-quiz">Test Process: Quiz 1</a>
+      </div>
+</div>

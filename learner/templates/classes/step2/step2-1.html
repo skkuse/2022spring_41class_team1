@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}?{% now 'U' %}" />
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>Gradient Descent Algorithm</h2>
+        <h3>Linear Regression</h3>
+        <p>
+          <b>선형 회귀(Linear Regression)</b>이란 학습 데이터와 가장 잘 맞는 하나의 직선을 찾는 일입니다. 
+          선형 회귀의 가설(직선의 방정식)은 아래와 같은 형식을 가집니다.<br/><br/>
+          y = Wx + b , x와 곱해지는 W를 가중치(Weight)라고 하며, b를 편향(bias)라고 합니다. 어떤 데이터를 이 가설에 대입하면 H(x) = Wx + b 라는 식으로 표현됩니다.<br/>
+          <br/>
+          <img src="{% static 'images/step2/step2-1-picture1.png' %}?{% now 'U' %}" style="display: block; margin-left:auto; margin-right: auto; width:50%;">
+          <br/>
+          데이터와 직선이 얼마나 잘 맞는지에 대해 수학적인 방법으로 알 수 있습니다.<br><br>
+          <b>비용 함수(cost function) = 손실 함수(loss function)</b> = 오차 함수(error function) = 목적 함수(objective function)
+          보통 비용 함수와 손실 함수라고 부릅니다. <br/><br/>
+          n개의 ( x, y )의 학습데이터가 있는 상황을 가정했을 때 모든 데이터들은 임의의 직선과 차이인 오차를 가지고 있고, 
+          음수와 양수 모두 존재하기 때문에 수학적인 방법을 통해서 Cost function을 표현해줘야 합니다.<br/><br/>
+          이 값을 평균 제곱 오차(Mean Squared Error)로 정리해주면 아래와 같은 식으로 표현됩니다.<br/><br/>
+          <img src="{% static 'images/step2/step2-1-picture2.png' %}?{% now 'U' %}" style="display: block; margin-left:auto; margin-right: auto; width:50%;">
+          <br>
+          단순하게 생각해보면, cost function의 값이 가장 낮은 직선이 학습데이터와 가장 잘 맞는 직선이라 할 수 있을 것입니다.
+        </p>
+        <a href="../step1/step1-2pr" class="previous">&laquo; 전 수업</a>
+        <a href="./step2-1ex" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+

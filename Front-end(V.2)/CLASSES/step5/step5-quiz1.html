@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="../../CSS/quiz.css" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="./quiz.js"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    <div class="header">
+      <div id="logo">
+        <a href="../../PAGES/homepage.html">
+          <img src="../../IMAGES/logo.png">
+        </a>
+      </div>
+      <div class="top_menu">
+        <a class="active" href="#">To Class</a> <!--진행상황에 따라 링크 봐뀜-->
+        <a class="active" href="../../PAGES/profile.html">To Profile</a>
+      </div>
+      <div id="userName">안녕하세요, 000님</div>
+      <input id="logoutSubmit" type="submit" value="로그아웃"/>
+    </div>
+
+    <div class="container">
+      <div class="navigation-content">
+        <a href="../../PAGES/homepage.html">Home</a>
+        <a href="../class_start.html">Pytorch</a>
+        <button class="dropdown-btn">Tensor<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step1/step1-1.html">Concept of Tensor: Class</a>
+          <a href="../../CLASSES/step1/step1-1ex.html">Concept of Tensor: Example</a>
+          <a href="../../CLASSES/step1/step1-1pr.html">Concept of Tensor: Practice</a>
+          <a href="../../CLASSES/step1/step1-2.html">Tensor Manipulation: Class</a>
+          <a href="../../CLASSES/step1/step1-2ex.html">Tensor Manipulation: Example</a>
+          <a href="../../CLASSES/step1/step1-2pr.html">Tensor Manipulation: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Gradient Descent Algorithm<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step2/step2-1.html">Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-1ex.html">Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2.html">GD in Linear Regression: Class</a>
+          <a href="../../CLASSES/step2/step2-2ex.html">GD in Linear Regression: Example</a>
+          <a href="../../CLASSES/step2/step2-2pr.html">GD in Linear Regression: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Data Preprocessing<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step3/step3-1.html">Loading Data</a>
+          <a href="../../CLASSES/step3/step3-2.html">Cleaning Datasets: Class</a>
+          <a href="../../CLASSES/step3/step3-2ex.html">Cleaning Datasets: Example</a>
+          <a href="../../CLASSES/step3/step3-2pr.html">Cleaning Datasets: Practice</a>
+        </div>
+        <button class="dropdown-btn ">Convolutional Neural Network<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step4/step4.html">CNN: Class</a>
+          <a href="../../CLASSES/step4/step4-quiz.html">CNN: Quiz</a>
+        </div>
+        <button class="dropdown-btn " style="color:white; background:rgb(35, 37, 114);">Training Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container" style="display: block">
+          <a href="../../CLASSES/step5/step5.html">Training Process: Class</a>
+          <a href="../../CLASSES/step5/step5-quiz1.html" style="color:white; background:rgb(35, 37, 114);">Training Process: Quiz 1</a>
+          <a href="../../CLASSES/step5/step5-quiz2.html">Training Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Validation Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step6/step6.html">Validation Process: Class</a>
+          <a href="../../CLASSES/step6/step6-quiz1.html">Validation Process: Quiz 1</a>
+          <a href="../../CLASSES/step6/step6-quiz2.html">Validation Process: Quiz 2</a>
+        </div>
+        <button class="dropdown-btn ">Test Process<i class="fa-caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="../../CLASSES/step7/step7.html">Test Process: Class</a>
+          <a href="../../CLASSES/step7/step7-quiz.html">Test Process: Quiz 1</a>
+        </div>
+      </div>
+
+      <div class="class-content">
+        <h2>Training Process</h2>
+        <h3>Quiz 1</h3>
+        <p>
+          Classification 과정에서 다음 중 아래와 같은 텐서값을 만드는 함수로 올바른 것은?
+          (label의 개수 = 3)
+          tensor[0.2, 0.1, 0.7]
+          <form>
+            <input id="q1" type="text" />
+          </form>
+          <input type="submit" id="submit" value="정답 확인" />
+          <br/>
+          
+          <div id="answer"></div>
+        </p>
+        <a href="./step5.html" class="previous">&laquo; 전 수업</a>
+        <a href="./step5-quiz2.html" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+    </body>
+  </html>

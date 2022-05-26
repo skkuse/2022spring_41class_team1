@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/quiz.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+
+      <div class="class-content">
+        <h2>Validation Process</h2>
+        <h3>Quiz 1</h3>
+        <p>
+          다음과 같은 설명이 의미하는 코드는 무엇인가?
+          
+          gradient 계산 contxt를 비활성화 해주는 역할을 하며, inference, validation을 할 때 사용됨.
+          따라서 필요한 메모리를 줄여주고 연산속도를 증가시키는 역할을 함.
+          <br>
+          <form id="send_editor" method="POST">
+            <input type="hidden" name="qno" value="6-1"/>
+            <br>
+
+            <input id="q1" type="text" style="font-size: 1rem; width: 20rem;"/>
+            <br>
+            <input type="submit" id="submit" value="정답 확인" />
+          </form>
+          <br/>
+          <div id="answer"></div>
+        </p>
+        <a href="./step6" class="previous">&laquo; 전 수업</a>
+        <a href="./step6-quiz2" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+    </body>
+  </html>

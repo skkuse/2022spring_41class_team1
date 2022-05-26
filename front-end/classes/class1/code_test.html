@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team 1: DOG/CAT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="codemirror/lib/codemirror.js"/></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css"/>
+<script src="codemirror/mode/xml/xml.js"></script>
+<script src="codemirror/addon/edit/closetag.js"></script>
+<link href="codemirror/theme/dracula.css" rel="stylesheet"/>
+</head>
+
+<body class="w3-content" style="max-width:1200px">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <!--Sidebar Title-->
+    <div class="w3-container w3-display-container w3-padding-16">
+      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide"><b>DOG/CAT Machine Learning</b></h3>
+    </div>
+    <!--Class List-->
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+      <!--Class 1-->
+      <a onclick="class1func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Library 소개 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 1 subpage-->
+        <div id="class1list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="/pages/class1/theory.html" class="w3-bar-item w3-button">sub-class 1</a>
+          <a href="/pages/class1/code_test.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>코드 테스트</a>
+        </div>
+      <!--Class 2-->
+      <a onclick="class2func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        2D Tensor 조작하기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 2 subpage-->
+        <div id="class2list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 3-->
+      <a onclick="class3func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        3D Tensor 조작하기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 3 subpage-->
+        <div id="class3list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 4-->
+      <a onclick="class4func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        선형 회귀 이해 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 4 subpage-->
+        <div id="class4list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 5-->
+      <a onclick="class5func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        CNN 만들어보기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 5 subpage-->
+        <div id="class5list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+    </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Answer Keys</a>  
+  </nav>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:250px">
+ 
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left-align">Library 소개</p>
+  </header>
+
+  <div class="w3-container w3-text-black" id="class_content">
+    <p>
+      1. 라이브러리를 import하세요
+    </p>
+    <form action="#" method="post">
+        <textarea id="editor"><p>I am a paragraph</p></textarea>
+       <button onclick="runcode()">Test Code</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+    <div class="w3-row-padding">
+      <div class="w3-col s4">
+        <h4>Contact</h4>
+        <p>Questions? Go ahead.</p>
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+          <button type="submit" class="w3-button w3-block w3-black">Send</button>
+        </form>
+      </div>
+
+      <div class="w3-col s4">
+        <h4>About</h4>
+        <b>Team 1 프로젝트</b> </br>
+        <b>개/고양이 머신러닝 수업</b> </br></br>
+
+        <h5>Contributors</h5>
+        <b>강동준</b></br>
+        <b>강영호</b></br>
+        <b>김기윤</b></br>
+        <b>박상민</b></br>
+        <b>이선종</b></br>
+        <b>조민구</b>
+      </div>
+
+      <div class="w3-col s4 w3-justify">
+        <h4>Class Information</h4>
+        <p>Class Name: 소프트웨어공학개론</p>
+        <p>Class ID: SWE3002_41</p>
+        <p>Professor: 이은석 교수님</p>
+     </div>
+    </div>
+  </footer>
+  <!-- End page content -->
+</div>
+
+
+<script>
+// Accordion 
+function class1func() {
+  var x = document.getElementById("class1list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class2func() {
+  var x = document.getElementById("class2list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class3func() {
+  var x = document.getElementById("class3list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}function class4func() {
+  var x = document.getElementById("class4list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class5func() {
+  var x = document.getElementById("class5list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+var editor = CodeMirror.fromTextArea //코드 입력 JS
+(document.getElementById('editor'),{
+  mode:"xml",
+  theme:"dracula",
+  lineNumbers: true,
+  autoCloseTags: true
+  });
+  editor.setSize("900","700");
+
+  function testcode()
+  {
+    var text = editor.getValue();
+    alert(text);
+  }
+(document.getElementById('editor'),{
+  mode:"xml",
+  theme: "dracula",
+});
+
+function runcode()
+{
+    var text = editor.getValue();
+    alert(text);
+}
+</script>
+
+</body>
+</html>

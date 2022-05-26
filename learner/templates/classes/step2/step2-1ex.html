@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+    <div class="container">
+      {% include "../sidebar.html" %}
+      <div class="class-content">
+        <h2>Understanding of Tensor</h2>
+      <h3>Example</h3>
+      <p>아래와 같이, Hypothesis와 Cost Function을 설정해 보고 출력해보세요</p>
+      <!--입력 코드-->
+      <h4>Input</h4>
+      <textarea id="inputeditor">
+import torch
+
+#주석처리부분이 사용자가 구현해야 할 부분
+def example2_1():
+    # x_train = torch.FloatTensor([[1], [2], [3]])
+    # y_train = torch.FloatTensor([[2], [4], [6]])
+    # # 가중치 W를 0으로 초기화하고 학습을 통해 값이 변경되는 변수임을 명시합니다
+    # W=torch.zeros(1, requires_grad=True)
+    # # 편향 b를 0으로 초기화하고 학습을 통해 값이 변경되는 변수임을 명시합니다
+    # b=torch.zeros(1, requires_grad=True)
+
+    # # H(x)
+    # hypothesis = x_train * W + b
+    # # cost
+    # cost = torch.mean((hypothesis - y_train) ** 2 )
+
+    # print(W, b)
+    # print(hypothesis)
+    # print(cost)
+    # return hypothesis, cost
+
+if __name__=="__main__":
+    hypothesis,cost=example2_1()                                       
+      </textarea>
+
+      <!--출력 코드-->
+      <h4>Output</h4>
+      <textarea id="outputeditor">
+tensor([0.], requires_grad=True) tensor([0.], requires_grad=True)
+tensor([[0.],
+        [0.],
+        [0.]], grad_fn=<AddBackward0>)
+tensor(18.6667, grad_fn=<MeanBackward0>)          
+      </textarea>
+
+      <br/>
+      <a href="./step2-1" class="previous">&laquo; 전 수업</a>
+      <a href="./step2-2" class="next">다음 수업 &raquo;</a>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("inputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","500");
+
+      var editor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","140");
+    </script>
+      </div>
+
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

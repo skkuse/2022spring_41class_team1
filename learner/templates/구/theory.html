@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team 1: DOG/CAT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="w3-content" style="max-width:1200px">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <!--Sidebar Title-->
+    <div class="w3-container w3-display-container w3-padding-16">
+      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide"><b>DOG/CAT Machine Learning</b></h3>
+    </div>
+    <!--Class List-->
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+      <!--Class 1-->
+      <a onclick="class1func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Library 소개 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 1 subpage-->
+        <div id="class1list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="theory.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>sub-class 1</a>
+          <a href="code_test.html" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 2-->
+      <a onclick="class2func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        2D Tensor 조작하기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 2 subpage-->
+        <div id="class2list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 3-->
+      <a onclick="class3func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        3D Tensor 조작하기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 3 subpage-->
+        <div id="class3list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 4-->
+      <a onclick="class4func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        선형 회귀 이해 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 4 subpage-->
+        <div id="class4list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+      <!--Class 5-->
+      <a onclick="class5func()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        CNN 만들어보기 <i class="fa fa-caret-down"></i>
+      </a>
+        <!--Class 5 subpage-->
+        <div id="class5list" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button w3-light-grey">이론</a>
+          <a href="#" class="w3-bar-item w3-button">코드 테스트</a>
+        </div>
+    </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Answer Keys</a>  
+  </nav>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:250px">
+ 
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left-align">Library 소개</p>
+  </header>
+
+
+  <div class="w3-container w3-text-black" id="class_content">
+    <p>
+      1. torch </br>
+      메인 네임스페이스입니다. 텐서 등의 다양한 수학 함수가 포함되어져 있으며 Numpy와 유사한 구조를 가집니다.
+      </br>
+      2. torch.autograd </br>
+      자동 미분을 위한 함수들이 포함되어져 있습니다. 자체 미분 가능 함수를 정의할 때 사용하는 기반 클래스인 'Function' 등이 포함되어져 있습니다.
+      </br>
+      3. torch.nn </br>
+      신경망을 구축하기 위한 다양한 데이터 구조나 레이어 등이 정의되어 있습니다. 예로는 ReLU와 같은 활성화 함수, MSELoss와 같은 손실 함수들이 있습니다.
+      </br>
+      4. torch.optim </br>
+      확률적 경사 하강법(Stochastic Gradient Descent, SGD)를 중심으로 한 파라미터 최적화 알고리즘이 구현되어져 있습니다.
+      </br>
+      5. torch.utils.data </br>
+      SGD의 반복 연산을 실행할 때 사용하는 미니 배치용 유틸리티 함수가 포함되어져 있습니다.
+      </br>
+      6. torch.onnx </br>
+      ONNX(Open Neural Network Exchange)의 포맷으로 모델을 익스포트(export)할 때 사용합니다. ONNX는 서로 다른 딥 러닝 프레임워크 간에 모델을 공유할 때 사용하는 포맷입니다.
+    </p>
+    </br>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/RandomBitmap.png" alt="2d_tensor" width="200" height="200">
+    </br></br>
+    <div id="quiz"></div>
+      <button id="submit">Submit Quiz</button>
+    <div id="results"></div>
+  </div>
+</br></br></br></br>
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+    <div class="w3-row-padding">
+      <div class="w3-col s4">
+        <h4>Contact</h4>
+        <p>Questions? Go ahead.</p>
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+          <button type="submit" class="w3-button w3-block w3-black">Send</button>
+        </form>
+      </div>
+
+      <div class="w3-col s4">
+        <h4>About</h4>
+        <b>Team 1 프로젝트</b> </br>
+        <b>개/고양이 머신러닝 수업</b> </br></br>
+
+        <h5>Contributors</h5>
+        <b>강동준</b></br>
+        <b>강영호</b></br>
+        <b>김기윤</b></br>
+        <b>박상민</b></br>
+        <b>이선종</b></br>
+        <b>조민구</b>
+      </div>
+
+      <div class="w3-col s4 w3-justify">
+        <h4>Class Information</h4>
+        <p>Class Name: 소프트웨어공학개론</p>
+        <p>Class ID: SWE3002_41</p>
+        <p>Professor: 이은석 교수님</p>
+     </div>
+    </div>
+  </footer>
+  <!-- End page content -->
+</div>
+
+
+<script>
+// Accordion 
+function class1func() {
+  var x = document.getElementById("class1list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class2func() {
+  var x = document.getElementById("class2list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class3func() {
+  var x = document.getElementById("class3list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}function class4func() {
+  var x = document.getElementById("class4list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function class5func() {
+  var x = document.getElementById("class5list");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+
+
+
+
+
+
+
+//quiz
+(function(){
+    function buildQuiz(){
+      // variable to store the HTML output
+      const output = [];
+  
+      // for each question...
+      myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+  
+          // variable to store the list of possible answers
+          const answers = [];
+  
+          // and for each available answer...
+          for(letter in currentQuestion.answers){
+  
+            // ...add an HTML radio button
+            answers.push(
+              `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                ${letter} :
+                ${currentQuestion.answers[letter]}
+              </label>`
+            );
+          }
+  
+          // add this question and its answers to the output
+          output.push(
+            `<div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join('')} </div>`
+          );
+        }
+      );
+  
+      // finally combine our output list into one string of HTML and put it on the page
+      quizContainer.innerHTML = output.join('');
+    }
+  
+    function showResults(){
+  
+      // gather answer containers from our quiz
+      const answerContainers = quizContainer.querySelectorAll('.answers');
+  
+      // keep track of user's answers
+      let numCorrect = 0;
+  
+      // for each question...
+      myQuestions.forEach( (currentQuestion, questionNumber) => {
+  
+        // find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  
+        // if answer is correct
+        if(userAnswer === currentQuestion.correctAnswer){
+          // add to the number of correct answers
+          numCorrect++;
+  
+          // color the answers green
+          answerContainers[questionNumber].style.color = 'lightgreen';
+        }
+        // if answer is wrong or blank
+        else{
+          // color the answers red
+          answerContainers[questionNumber].style.color = 'red';
+        }
+      });
+  
+      // show number of correct answers out of total
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    }
+  
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submit');
+    const myQuestions = [
+      {
+        question: "Who invented JavaScript?",
+        answers: {
+          a: "Douglas Crockford",
+          b: "Sheryl Sandberg",
+          c: "Brendan Eich"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Which one of these is a JavaScript package manager?",
+        answers: {
+          a: "Node.js",
+          b: "TypeScript",
+          c: "npm"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Which tool can you use to ensure code quality?",
+        answers: {
+          a: "Angular",
+          b: "jQuery",
+          c: "RequireJS",
+          d: "ESLint"
+        },
+        correctAnswer: "d"
+      }
+    ];
+  
+    // Kick things off
+    buildQuiz();
+  
+    // Event listeners
+    submitButton.addEventListener('click', showResults);
+  })();
+</script>
+
+</body>
+</html>

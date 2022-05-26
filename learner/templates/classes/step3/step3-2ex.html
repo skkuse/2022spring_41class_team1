@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/lib/codemirror.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'codemirror-5.65.3/theme/dracula.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/css/css.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/lib/codemirror.js' %}?{% now 'U' %}"></script>
+    <script type="text/javascript" src="{% static 'codemirror-5.65.3/mode/python/python.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+
+
+    <!--컨텐트-->
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>Cleaning datasets</h2>
+      <h3>Example</h3>
+      <!--입력 코드-->
+      <h4>Input</h4>
+      <form id="send_editor" method="post" action="#">
+        <textarea id="inputeditor">
+import torch
+import os
+import os.path as p
+import cv2
+from torch.utils.data import TensorDataset
+
+root_dir='C:/cd_classifier/Practice/Step3'
+animal_data=[]
+data_labels=[]
+img_rows = 256
+img_cols = 256
+
+# Get animal data
+# for animal in ('cats/', 'dogs/'):
+#     animal_dir=p.join(root_dir,animal)
+#     os.chdir(animal_dir)
+#     files = os.listdir(animal_dir)
+
+#     for file in files:
+#         if '.jpg' in file: 
+#             f = cv2.imread(file, 0)
+#             f = torch.FloatTensor(cv2.resize(f, (img_rows, img_cols)))
+        
+#         animal_data.append(f)
+#         if animal == "cats/":
+#             data_labels.append(1)
+#         else:
+#             data_labels.append(0)
+# print(animal_data[0])
+# for i in animal_data:
+#     print(i.shape)
+# for j in data_labels:
+#     print(j, end=' ')                 
+        </textarea>
+      </form>
+       <!--출력 코드-->
+      <h4>Output</h4>
+      <form id="receive_editor" method="get" action="#">
+        <textarea id="outputeditor">
+tensor([[ 42.,  42.,  43.,  ..., 203., 197., 195.],
+[ 43.,  43.,  43.,  ..., 198., 194., 191.],
+[ 43.,  42.,  42.,  ..., 193., 192., 193.],
+...,
+[ 30.,  27.,  23.,  ...,  28.,  31.,  46.],
+[ 31.,  28.,  23.,  ...,  32.,  34.,  46.],
+[ 31.,  27.,  22.,  ...,  44.,  36.,  33.]])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+torch.Size([256, 256])
+1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0  
+        </textarea>
+      </form>
+      
+      <br/>
+      <a href="./step3-2" class="previous">&laquo; 전 수업</a>
+      <a href="./step3-2pr" class="next">다음 수업 &raquo;</a>
+    </div>
+
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("inputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+
+      var editor = CodeMirror.fromTextArea(document.getElementById("outputeditor"),{
+        mode:"python", 
+        theme:"dracula", 
+        lineNumbers: true,
+        readOnly: true
+      }).setSize("100%","100%");
+    </script>
+      </div>
+
+      <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+  
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("clicked");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Machine Learning Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--css tags-->
+    <link rel="stylesheet" href="{% static 'css/cssReset.css' %}?{% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'css/quiz.css' %}?{% now 'U' %}" />
+    <!--JS TAGAS-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/quiz.js' %}?{% now 'U' %}"></script>
+  </head>
+  <body>
+    <!--내비게이션 있음-->
+    {% include "../navigation.html" %}
+    <div class="container">
+      {% include "../sidebar.html" %}
+
+      <div class="class-content">
+        <h2>CNN ( Convolutional Neural Network )</h2>
+        <h3>Quiz</h3>
+        <p>
+          Convolution 계산 중 max pooling을 통한 결과에 해당하는 값은 무엇인가?
+          <img src="{% static 'images/step4/step4-quiz-picture1.png' %}?{% now 'U' %}" style="display: block; margin-left:auto; margin-right: auto; width:70%;">
+          <form id="send_editor" method="POST" style="display: block; margin-left:auto; margin-right: auto; width: 25%;">
+            {% csrf_token %}
+            <input type="hidden" name="qno" value="4"/>
+            <br>
+            <ol>
+                <li><input id="q1" name="q1" type="text" style="font-size: 1rem; width: 10rem;"/></li>
+                <li><input id="q2" name="q2" type="text" style="font-size: 1rem; width: 10rem;"/></li>
+                <li><input id="q3" name="q3" type="text" style="font-size: 1rem; width: 10rem;"/></li>
+                <li><input id="q4" name="q4" type="text" style="font-size: 1rem; width: 10rem;"/></li>
+            </ol>
+            <br>
+            <input type="submit" id="submit" value="Result" />
+          </form>
+        </p>
+        <a href="../step4/step4" class="previous">&laquo; 전 수업</a>
+        <a href="../step5/step5" class="next">다음 수업 &raquo;</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("clicked");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+    </body>
+  </html>
